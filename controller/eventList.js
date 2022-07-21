@@ -2,9 +2,11 @@ const { google } = require('googleapis');
 const calendar = google.calendar('v3');
 const calendarAuth = require('../config/google-api-auth');
 
-function listAllEvents(startDate) {
+function listAllEvents(req, res) {
   // authorize request
   let auth = calendarAuth();
+
+  let startDate = new Date().toISOString();
 
   // list events
   calendar.events.list(
@@ -15,12 +17,11 @@ function listAllEvents(startDate) {
     },
     (err, response) => {
       if (err) {
-        console.log(err);
-        return;
+        return res.status(400).send(err);
       }
-      console.log(response.data.items);
+      return res.json(response.data.items);
     }
   );
 }
 
-listAllEvents(new Date().toISOString());
+module.exports = { listAllEvents };
