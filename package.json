@@ -1,0 +1,24 @@
+{
+  "name": "violin-calendar-api",
+  "version": "1.0.0",
+  "description": "A server that connects with google calendar's api to send event information",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimi5930/violin-calendar-api.git"
+  },
+  "author": "mimi5930",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mimi5930/violin-calendar-api/issues"
+  },
+  "homepage": "https://github.com/mimi5930/violin-calendar-api#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "googleapis": "^105.0.0"
+  }
+}
