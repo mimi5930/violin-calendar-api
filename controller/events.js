@@ -24,4 +24,22 @@ function listAllEvents(req, res) {
   );
 }
 
-module.exports = { listAllEvents };
+function getEvent(req, res) {
+  // authorize request
+  const auth = calendarAuth();
+
+  // find event
+  calendar.events.get(
+    {
+      auth: auth,
+      calendarId: process.env.CALENDAR_ID,
+      eventId: req.params.eventId
+    },
+    (err, response) => {
+      if (err) return res.status(400).send(err);
+      return res.json(response.data);
+    }
+  );
+}
+
+module.exports = { getEvent, listAllEvents };

@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { listAllEvents } = require('../../controller/eventList');
+const { listAllEvents, getEvent } = require('../../controller/events');
 
-router.get('/list-all-events', listAllEvents);
+router.get('/events', listAllEvents);
+router.get('/event/:eventId', getEvent);
 
 module.exports = router;
